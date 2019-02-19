@@ -157,8 +157,6 @@ let stream_mapi ~f stream =
 
 let stream_map ~f stream = stream_mapi ~f:(fun (_i, v) -> f v) stream
 
-let empty_stream = Stream.from (fun _ -> None)
-
 let stream_to_list stream =
   let l = ref [] in
   Stream.iter (fun v -> l := v::!l) stream;
