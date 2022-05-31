@@ -23,8 +23,8 @@ module Function : sig
     type 'a t
 
     val make :
-      to_yojson: ('a -> Yojson.Safe.json) ->
-      of_yojson: (Yojson.Safe.json -> ('a, string) result) ->
+      to_yojson: ('a -> Yojson.Safe.t) ->
+      of_yojson: (Yojson.Safe.t -> ('a, string) result) ->
       'a t
   end
 
@@ -32,8 +32,8 @@ module Function : sig
     type 'a t
 
     val make :
-      to_yojson: ('a -> Yojson.Safe.json) ->
-      of_yojson: (Yojson.Safe.json -> ('a, string) result) ->
+      to_yojson: ('a -> Yojson.Safe.t) ->
+      of_yojson: (Yojson.Safe.t -> ('a, string) result) ->
       equal: ('a -> 'a -> bool) ->
       show: ('a -> string) ->
       'a t

@@ -26,8 +26,8 @@ end
 
 module Recorded_call = struct
   type t =
-    { arguments : Yojson.Safe.json list
-    ; return_value : Yojson.Safe.json
+    { arguments : Yojson.Safe.t list
+    ; return_value : Yojson.Safe.t
     ; execution_time : float
     }
   [@@deriving yojson]
@@ -36,8 +36,8 @@ end
 module Function = struct
   module Argument = struct
     type 'a t =
-      { to_yojson : 'a -> Yojson.Safe.json
-      ; of_yojson : Yojson.Safe.json -> ('a, string) result
+      { to_yojson : 'a -> Yojson.Safe.t
+      ; of_yojson : Yojson.Safe.t -> ('a, string) result
       }
     [@@deriving make]
 
@@ -47,8 +47,8 @@ module Function = struct
 
   module Return_value = struct
     type 'a t =
-      { to_yojson : 'a -> Yojson.Safe.json
-      ; of_yojson : Yojson.Safe.json -> ('a, string) result
+      { to_yojson : 'a -> Yojson.Safe.t
+      ; of_yojson : Yojson.Safe.t -> ('a, string) result
       ; equal : 'a -> 'a -> bool
       ; show : 'a -> string
       }
